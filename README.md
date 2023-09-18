@@ -9,7 +9,7 @@
 - [Endpoints de Autenticação](#endpoints-de-autenticação)
 - [Endpoints da API](#endpoints-da-api)
 - [Endpoints do Frontend](#endpoints-do-frontend)
-- [Contribuição](#contribuição)
+- [testes](#testes)
 - [Licença](#licença)
 - [Contato](#contato)
 
@@ -149,6 +149,26 @@ A documentação da API está disponível em:
 - `/update/<int:id>/` - Página de atualização de usuário
 - `/delete/<int:id>/` - Página de exclusão de usuário
 - `/logout/` - Página de logout	
+
+## Testes
+
+Para rodar os testes, acesse o container da api 
+
+```bash
+docker compose exec api bash
+```
+
+ative o ambiente virtual
+
+```bash
+poetry shell
+```
+
+rode os testes
+
+```bash
+python manage.py test
+```
 
 ## Licença
 Este projeto NÃO possui licença.
