@@ -1,4 +1,4 @@
-name: Py Users Api DRF CD
+name: Py Users Api CD
 
 on: workflow_call
 

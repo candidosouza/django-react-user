@@ -62,7 +62,7 @@ jobs:
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/py-uses-api:latest
 
 
-  # deploy-ec2:
-  #   needs: docker
-  #   uses: ./.github/workflows/cd-ec2.yml
-  #   secrets: inherit
+  deploy-ec2:
+    needs: docker
+    uses: ./.github/workflows/cd-ec2.yml
+    secrets: inherit
