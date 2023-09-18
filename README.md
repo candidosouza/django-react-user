@@ -5,8 +5,6 @@
 - [Visão Geral](#visão-geral)
 - [Tecnologias](#tecnologias)
 - [Instalação](#instalação)
-- [Configuração](#configuração)
-- [Uso](#uso)
 - [Documentação da API](#documentação-da-api)
 - [Endpoints de Autenticação](#endpoints-de-autenticação)
 - [Endpoints da API](#endpoints-da-api)
@@ -112,10 +110,6 @@ acesse o servidor local
 ```bash
 http://localhost:3000/
 ```
-
-## Configuração
-
-## Uso
 
 ## Documentação da API
 
