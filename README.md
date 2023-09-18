@@ -139,6 +139,10 @@ A documentação da API está disponível em:
 
 - `/user-platform-admin/` - Página de login do admin
 
+usuário: admin
+
+password: admin
+
 
 ## Endpoints do Frontend
 
