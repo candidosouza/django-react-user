@@ -21,6 +21,7 @@ Este projeto consiste em uma aplicação que envolve uma API backend desenvolvid
 
 ## Dependências
 
+
 - Docker
 
 ## Tecnologias
@@ -31,6 +32,86 @@ Este projeto consiste em uma aplicação que envolve uma API backend desenvolvid
 - TypeScript
 
 ## Instalação
+
+clone o projeto
+    
+```bash
+git clone https://github.com/candidosouza/django-react-user.git
+```
+
+entre na pasta do projeto
+
+```bash
+cd django-react-user
+```
+
+suba o container
+
+```bash
+docker-compose up -d
+```
+
+### Acessando a API
+acesse o container da api 
+
+```bash
+docker compose exec api bash
+```
+
+ative o ambiente virtual
+
+```bash
+poetry shell
+```
+
+rode as migrations
+
+```bash
+python manage.py migrate
+```
+
+rode as fixtures
+
+```bash
+python manage.py seeds
+```
+
+suba o servidor
+
+```bash
+python manage.py runserver 0.0.0.0:8000
+```
+
+acesse o servidor local
+
+```bash
+http://localhost:8000/
+```
+
+### Acessando o Frontend
+acesse o container do frontend 
+
+```bash
+docker compose exec frontend bash
+```
+
+instale as dependências
+
+```bash
+npm install
+```
+
+suba o servidor
+
+```bash
+npm start
+```
+
+acesse o servidor local
+
+```bash
+http://localhost:3000/
+```
 
 ## Configuração
 
@@ -59,6 +140,10 @@ A documentação da API está disponível em:
 - `PUT /api/users/<int:pk>/` - Atualização de um usuário
 - `PATCH /api/users/<int:pk>/` - Atualização parcial de um usuário
 - `DELETE /api/users/<int:pk>/` - Exclusão de um usuário
+
+## Endpoints da Administração
+
+- `/user-platform-admin/` - Página de login do admin
 
 
 ## Endpoints do Frontend

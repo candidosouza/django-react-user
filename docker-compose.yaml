@@ -11,8 +11,8 @@ services:
       - ./logs:/logs
     ports:
       - 8000:8000
-    extra_hosts:
-      - "host.docker.internal:172.17.0.1"
+    networks:
+      - my-users-network
   
   frontend:
     build:
@@ -27,6 +27,13 @@ services:
       - 3000:3000
     depends_on:
       - api
-    extra_hosts:
-      - "host.docker.internal:172.17.0.1"
+    networks:
+      - my-users-network
+  
+networks:
+  my-users-network:
+    driver: bridge
+  
+    
+
 
