@@ -1,0 +1,35 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+
+{% include 'users/partials/modal-change.html' %}
+
+<div class="container">
+    <div class="jumbotron">
+        <form action="{% url 'userchange' request.user.pk %}" method="post">
+          {% csrf_token %}
+
+          {% for message in messages %}
+              <p class="text-danger">{{ message }}</p>
+          {% endfor %}
+          {% for field in form.visible_fields %}
+          <div class="form-group">
+              {% for error in field.errors %}
+                  <p class="text-danger">{{ error }}</p>
+              {% endfor %}
+
+              <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+              {{ field }}
+              {% if field.help_text %}
+              <small class="form-text text-muted">{{ field.help_text }}</small>
+              {% endif %}
+          </div>
+          {% endfor %}
+
+          <button type="submit" class="btn btn-primary">Alterar</button>
+          <a href="{% url 'user' request.user.pk %}" class="btn btn-link">Voltar</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

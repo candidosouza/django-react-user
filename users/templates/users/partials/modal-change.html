@@ -1,0 +1,41 @@
+<!-- Modal login -->
+<div class="modal fade" id="change" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Alterar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="{% url 'user' user.pk %}" method="post">
+          {% csrf_token %}
+
+          {% for message in messages %}
+              <p class="text-danger">{{ message }}</p>
+          {% endfor %}
+          {% for field in form.visible_fields %}
+          <div class="form-group">
+              {% for error in field.errors %}
+                  <p class="text-danger">{{ error }}</p>
+              {% endfor %}
+
+              <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+              {{ field }}
+              {% if field.help_text %}
+              <small class="form-text text-muted">{{ field.help_text }}</small>
+              {% endif %}
+          </div>
+          {% endfor %}
+          
+          <button type="submit" class="btn btn-primary">Alterar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <small id="emailHelp" class="form-text text-muted">Seus dados estão seguros conosco e nunca serão compartilhados com terceiros.</small>
+      </div>
+    </div>
+  </div>
+</div>

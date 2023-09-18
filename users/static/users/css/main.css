@@ -1,0 +1,45 @@
+.navbar {
+    background-color: #232424;
+    color: #ffffff;
+}
+.navbar .navbar-brand,
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:active,
+.navbar .navbar-brand:focus {
+    color: #ffffff;
+}
+.navbar-collapse .navbar-nav .nav-item a,
+.navbar-collapse .navbar-nav .nav-item a:hover,
+.navbar-collapse .navbar-nav .nav-item a:focus,
+.navbar-collapse .navbar-nav .nav-item a:active {
+    color: #ffffff;
+}
+
+.main {
+    /* background-color: #3B4465; */
+    min-height: calc(100vh - 8rem);
+}
+.footer-default {
+    background-color: #232424;
+    color: #eee;
+}
+
+.info {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.info p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+}
+
+.jumbotron {
+    margin-top: 30px;
+}

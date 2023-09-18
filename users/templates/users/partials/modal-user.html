@@ -1,0 +1,90 @@
+{% load static %}
+
+<!-- Modal login -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="{% url 'userlogin' %}" method="post">
+          {% csrf_token %}
+
+          {% for message in messages %}
+              <p class="text-danger">{{ message }}</p>
+          {% endfor %}
+          {% for field in form.visible_fields %}
+          <div class="form-group">
+              {% for error in field.errors %}
+                  <p class="text-danger">{{ error }}</p>
+              {% endfor %}
+
+              <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+              {{ field }}
+              {% if field.help_text %}
+              <small class="form-text text-muted">{{ field.help_text }}</small>
+              {% endif %}
+          </div>
+          {% endfor %}
+          
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <small id="emailHelp" class="form-text text-muted">Seus dados estão seguros conosco e nunca serão compartilhados com terceiros.</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal register-->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">{% if request.user.is_autenticated %}Atualizar{% else %}Cadastrar{% endif %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="{% url 'userregister' %}" method="post">
+          {% csrf_token %}
+
+          {% for message in messages %}
+              <p class="text-danger">{{ message }}</p>
+          {% endfor %}
+          {% for field in form_cad.visible_fields %}
+          <div class="form-group">
+              
+              {% for error in field.errors %}
+              <p class="text-danger">{{ error }}</p>
+              {% endfor %}
+
+              <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+              {{ field }}
+              {% if field.help_text %}
+              <small class="form-text text-muted">{{ field.help_text }}</small>
+              {% endif %}
+          </div>
+          {% endfor %}
+          <small id="emailHelp" class="form-text text-muted">A senha deve conter pelo menos 6 caracteres, incluindo números e letras</small>
+
+          
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <small id="emailHelp" class="form-text text-muted">Seus dados estão seguros conosco e nunca serão compartilhados com terceiros.</small>
+      </div>
+    </div>
+  </div>
+</div>

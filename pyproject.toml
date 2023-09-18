@@ -1,0 +1,71 @@
+[tool.poetry]
+name = "Users"
+version = "0.1.0"
+description = "Py Users API with Django Rest Framework"
+authors = ["candidosouza <candidosouzza@gmail.com>"]
+readme = "README.md"
+# packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^7.4.0"
+django = "^4.2.4"
+djangorestframework = "^3.14.0"
+markdown = "^3.4.4"
+lazy-object-proxy = "^1.9.0"
+faker = "^19.3.1"
+django-filter = "^23.2"
+selenium = "^4.12.0"
+python-dotenv = "^1.0.0"
+dj-database-url = "^2.1.0"
+psycopg2 = "^2.9.7"
+pylint = "^2.17.5"
+django-cors-headers = "^4.2.0"
+pillow = "^10.0.0"
+django-redis = "^5.3.0"
+djangorestframework-xml = "^2.0.0"
+drf-yasg = "^1.21.7"
+djangorestframework-simplejwt = "^5.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+taskipy = "^1.12.0"
+blue = "^0.9.1"
+ruff = "^0.0.284"
+httpx = "^0.24.1"
+isort = "^5.12.0"
+pylint = "^2.17.5"
+pytest-django = "^4.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+#  ruff na configuração padrão. siguir a PEP-8, usando 80 caracteres por linha e ignorando o ambiente virtual e pasta de migrações do banco de dados:
+[tool.ruff]
+line-length = 79
+exclude = ['.venv', 'migrations']
+
+#  isort para o formato do Black, que coloca uma instrução import por linha para evitar conflitos no git e também usar a base da PEP-8 para 80 caracteres:
+[tool.isort]
+profile = "black"
+line_length = 79
+
+#  pytest para reconhecer o caminho base para execução dos testes na raiz do projeto ./src:
+[tool.pytest.ini_options]
+pythonpath = ".venv/bin/python"
+
+#  blue para excluir o caminho das migrações quando essas forem utilizadas:
+[tool.blue]
+extend-exclude = '(migrations/)'
+
+#  simplificar a execução de certos comandos
+[tool.taskipy.tasks]
+lint = 'ruff . && blue --check . --diff'
+format = 'blue .  && isort .'
+pre_test = 'task lint'
+test = 'pytest -s -x --cov=users -vv --ignore .venv'
+test01 = 'pytest -s -x --cov ./users -vv --ignore .venv --cov-report term-missing --cov-report xml --cov-report html'
+post_test = 'coverage html'

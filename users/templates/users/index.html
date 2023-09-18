@@ -1,0 +1,16 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+
+{% include 'users/partials/modal-user.html' %}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Olá!</h1>
+        <p class="lead">Faça o login para ver seus dados.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#login">Logar</a>
+    </div>
+</div>
+
+{% endblock %}
