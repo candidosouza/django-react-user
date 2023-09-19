@@ -64,10 +64,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-toggle="modal" data-target="#register">Cadastrar</a>
                         </li>
-                    {% else %} {% endcomment %}
-                        {% comment %} <li class="nav-item">
+                    {% else %}
+                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'user' request.user.pk %}">Meus dados</a>
-                        </li> {% endcomment %}
+                        </li>  {% endcomment %}
                         <li class="nav-item">
                             <a class="nav-link" href="/api/">API</a>
                         </li>
@@ -79,8 +79,8 @@
                         </li>
                         {% comment %} <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                        </li> {% endcomment %}
-                    {% comment %} {% endif %} {% endcomment %}
+                        </li>
+                    {% endif %} {% endcomment %}
                         <li class="nav-item">
                             <a class="nav-link" href="/user-platform-admin/">Administração</a>
                         </li>

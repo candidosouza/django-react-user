@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
+    // change amazon ec2 ip address here
     baseURL: 'http://localhost:8000',
     headers: {
         'Accept': 'application/json',

@@ -189,6 +189,7 @@ REST_FRAMEWORK = {
 }
 
 # adicionar o endereço do frontend configuração do django cors headers
+# change amazon ec2
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
 
 # CACHES = {
