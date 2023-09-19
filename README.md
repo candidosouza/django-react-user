@@ -20,16 +20,15 @@ Este projeto consiste em uma aplicação que envolve uma API backend desenvolvid
 
 ## Observações
 
-- Algumas informações informações sobre os arquivos e pastas do projeto / Api Django:
+- Algumas informações sobre os arquivos e pastas do projeto / Api Django:
 
-    - `api/` - Pasta do projeto Django
-    - `api/common/` - Pasta com arquivos em comuns a todos os apps do projeto
-    - `api/users/` - Pasta do app de usuários
-    - `api/users/fixtures/` - Pasta com fixtures para popular o banco de dados
-    - `api/users/tests/` - Pasta com os testes do app de usuários
-    - `api/users/serializers.py` - Arquivo com os serializers do app de usuários
-    - `api/users/api.py` - Arquivo com as ``viewsSets`` do django rest framework do app de usuários
-    - `api/users/views.py` - Arquivo com as views do app de usuários (Foi criado views para templates, porém foram desabilitados no menu do layout em common/templates/layout/layout.html)
+    - `common/` - Pasta com arquivos em comuns a todos os apps do projeto
+    - `users/` - Pasta do app de usuários
+    - `users/fixtures/` - Pasta com fixtures para popular o banco de dados
+    - `users/tests/` - Pasta com os testes do app de usuários
+    - `users/serializers.py` - Arquivo com os serializers do app de usuários
+    - `users/api.py` - Arquivo com as ``viewsSets`` do django rest framework do app de usuários
+    - `users/views.py` - Arquivo com as views do app de usuários (Foi criado views para templates, porém foram desabilitados no menu do layout em common/templates/layout/layout.html)
 
 - Algumas informações sobre configurações de segurança:
     - diretivas de segurança do projeto estão em `setup/settings.py`
