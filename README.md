@@ -3,6 +3,7 @@
 ## Índice
 
 - [Visão Geral](#visão-geral)
+- [Observações](#observacoes)
 - [Tecnologias](#tecnologias)
 - [Instalação](#instalação)
 - [Documentação da API](#documentação-da-api)
@@ -16,6 +17,20 @@
 ## Visão Geral
 
 Este projeto consiste em uma aplicação que envolve uma API backend desenvolvida com Django e Django Rest Framework e um frontend construído com React e TypeScript. A aplicação é voltada para gerenciar usuários, permitindo operações como criar, atualizar, visualizar e excluir contas de usuário incluindo autenticação via JWT.
+
+## Observações
+
+- Algumas informações informações sobre os arquivos e pastas do projeto / Api Django:
+
+    - `api/` - Pasta do projeto Django
+    - `api/common/` - Pasta com arquivos em comuns a todos os apps do projeto
+    - `api/users/` - Pasta do app de usuários
+    - `api/users/fixtures/` - Pasta com fixtures para popular o banco de dados
+    - `api/users/tests/` - Pasta com os testes do app de usuários
+    - `api/users/serializers.py` - Arquivo com os serializers do app de usuários
+    - `api/users/api.py` - Arquivo com as ``viewsSets`` do django rest framework do app de usuários
+    - `api/users/views.py` - Arquivo com as views do app de usuários (Foi criado views para templates, porém foram desabilitados no menu do layout em common/templates/layout/layout.html)
+
 
 ## Dependências
 
