@@ -38,7 +38,6 @@ Este projeto consiste em uma aplicação que envolve uma API backend desenvolvid
         - `X_FRAME_OPTIONS` - Para evitar ataques de clickjacking
         - `CSP_DEFAULT_SRC` - Política de segurança Content-Security-Policy (CSP)
 
-
 ## Dependências
 
 
