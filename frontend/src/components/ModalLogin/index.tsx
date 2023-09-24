@@ -44,6 +44,8 @@ export default function LoginModal({ show, onClose }: LoginModalProps) {
             });
     };
 
+    const isFormEmpty = !formData.username.trim() || !formData.password.trim();
+
     return (
         <Modal show={show} onHide={onClose}>
             <Modal.Header closeButton>
@@ -54,7 +56,7 @@ export default function LoginModal({ show, onClose }: LoginModalProps) {
                     <form onSubmit={handleSubmit}>
                         <input type="email" name="username" placeholder="Email" onChange={handleChange} required />
                         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                        <button type="submit">Login</button>
+                        <button type="submit" className='btn btn-info' disabled={isFormEmpty}>Login</button>
                     </form>
                 </div>
 

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_filters',
     'drf_yasg',
     'corsheaders',
+    'csp',
     'common',
     'users'
 ]
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'setup.urls'
@@ -188,9 +190,30 @@ REST_FRAMEWORK = {
     ],
 }
 
+# configurações de segurança
+
 # adicionar o endereço do frontend configuração do django cors headers
 # change amazon ec2
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+CORS_ALLOWED_ORIGINS = [os.environ['CORS_ALLOWED_ORIGINS']]
+
+# para evitar ataques de XSS
+SECURE_BROWSER_XSS_FILTER = True
+
+# para evitar ataques de clickjacking
+X_FRAME_OPTIONS = 'DENY'
+
+# para evitar ataques de sniffing
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Configuração do CSP
+# configuração da política de segurança Content-Security-Policy (CSP)
+CSP_DEFAULT_SRC = ("'self'",)
+# para ativar o CSP
+CSP_IMG_SRC = ("'self'",)
+# diretivas para permitir o uso de fontes e estilizações externas 
+CSP_STYLE_SRC = ("'self'", "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css")
+CSP_FONT_SRC = ("'self'", "https://fonts.googleapis.com/css")
+
 
 # CACHES = {
 #     'default': {

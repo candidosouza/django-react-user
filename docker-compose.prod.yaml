@@ -2,38 +2,30 @@ version: '3'
 
 services:
   api:
-    build: .
+    build: 
+      context: .
+      dockerfile: ./Dockerfile.prod
     container_name: api
-    command: ./.docker/entrypoint.sh
     tty: true
     volumes:
       - .:/home/python/app
       - ./logs:/logs
     ports:
       - 8000:8000
-    networks:
-      - my-users-network
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
   
   frontend:
     build:
       context: .
-      dockerfile: ./frontend/Dockerfile
+      dockerfile: ./frontend/Dockerfile.prod
     container_name: frontend
-    command: .docker/entrypoint.dev.sh
     tty: true
     volumes:
       - ./frontend:/home/ui
     ports:
       - 3000:3000
-    networks:
-      - my-users-network
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
     depends_on:
       - api
-  
-networks:
-  my-users-network:
-    driver: bridge
-  
-    
-
-

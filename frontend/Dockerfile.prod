@@ -1,0 +1,16 @@
+FROM node:20-slim as builder
+
+WORKDIR /home/ui
+
+COPY ./frontend/package*.json ./
+RUN npm install
+
+COPY ./frontend ./
+
+RUN npm run prod && rm -rf node_modules
+
+FROM node:20-slim
+WORKDIR /home/ui
+COPY --from=builder /home/ui/build ./build
+USER node
+ENTRYPOINT ["./.docker/entrypoint.sh"]
