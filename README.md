@@ -31,6 +31,14 @@ Este projeto consiste em uma aplicação que envolve uma API backend desenvolvid
     - `api/users/api.py` - Arquivo com as ``viewsSets`` do django rest framework do app de usuários
     - `api/users/views.py` - Arquivo com as views do app de usuários (Foi criado views para templates, porém foram desabilitados no menu do layout em common/templates/layout/layout.html)
 
+- Algumas informações sobre configurações de segurança:
+    - diretivas de segurança do projeto estão em `setup/settings.py`
+        - `CORS_ORIGIN_ALLOW_ALL = True` - Permite que qualquer origem acesse a API
+        - `SECURE_CONTENT_TYPE_NOSNIFF` - Para evitar ataques de sniffing de MIME
+        - `SECURE_BROWSER_XSS_FILTER` - Para evitar ataques de XSS
+        - `X_FRAME_OPTIONS` - Para evitar ataques de clickjacking
+        - `CSP_DEFAULT_SRC` - Política de segurança Content-Security-Policy (CSP)
+
 
 ## Dependências
 
