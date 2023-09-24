@@ -32,7 +32,7 @@ Este projeto consiste em uma aplicação que envolve uma API backend desenvolvid
 
 - Algumas informações sobre configurações de segurança:
     - diretivas de segurança do projeto estão em `setup/settings.py`
-        - `CORS_ORIGIN_ALLOW_ALL = True` - Permite que qualquer origem acesse a API
+        - `CORS_ALLOWED_ORIGINS` - Permite que apenas o frontend acesse a API
         - `SECURE_CONTENT_TYPE_NOSNIFF` - Para evitar ataques de sniffing de MIME
         - `SECURE_BROWSER_XSS_FILTER` - Para evitar ataques de XSS
         - `X_FRAME_OPTIONS` - Para evitar ataques de clickjacking
